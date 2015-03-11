@@ -13,11 +13,9 @@
           <p>Itaque earum rerum hic tenetur a atque atatum dele niti atque tenetur a atque atatum tenetur volup tatum.</p>
           <div class="brand-bg">
             <!-- Social Media Icons -->
-            <a href="#" class="facebook"><i class="fa fa-facebook circle-3"></i></a>
-            <a href="#" class="twitter"><i class="fa fa-twitter circle-3"></i></a>
-            <a href="#" class="google-plus"><i class="fa fa-google-plus circle-3"></i></a>
-            <a href="#" class="linkedin"><i class="fa fa-linkedin circle-3"></i></a>
-            <a href="#" class="pinterest"><i class="fa fa-pinterest circle-3"></i></a>
+            <a target="_blank" href="https://www.facebook.com/raisingforeffectivegiving" class="facebook"><i class="fa fa-facebook circle-3"></i></a>
+            <a target="_blank" href="https://twitter.com/REGcharity" class="twitter"><i class="fa fa-twitter circle-3"></i></a>
+            <a target="_blank" href="https://www.youtube.com/channel/UC9Gkhg-FeQjWqcLnaal_Fdg" class="youtube"><i class="fa fa-youtube circle-3"></i></a>
           </div>
           <div class="subscribe-box">
             <h5 class="bold">Subscribe :</h5>
@@ -43,11 +41,13 @@
           <div class="foot-item-content">
             <ul class="list-unstyled">
               <!-- Link -->
-              <li><a href="#">Denocing Sapientes Contain</a></li>
-              <li><a href="#">Dignissim Electronic Typeset</a></li>
-              <li><a href="#">Laborum Desktop Publishing</a></li>
-              <li><a href="#">Quibus PageMaker Including</a></li>
-              <li><a href="#">Denocing Sapientes Contain</a></li>
+              <?php
+                $args = array( 'numberposts' => '5' );
+                $recent_posts = wp_get_recent_posts( $args );
+                foreach( $recent_posts as $recent ){
+                  echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -112,14 +112,9 @@
       <!-- Footer Content -->
       <!-- Paragraph -->
       <p class="pull-left">Copyright &copy; 2014 - <a href="#">Your Site</a></p>
-      <ul class="list-inline pull-right">
-        <!-- List -->
-        <li><a href="index.html">Home</a><li>
-          <li><a href="service.html">Service</a></li>
-          <li><a href="feature.html">Features</a></li>
-          <li><a href="about-us.html">About</a></li>
-          <li><a href="contact-us.html">Contact</a></li>
-        </ul>
+      <div class="list-inline pull-right">
+        <?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_class'=> 'list-inline' ) ); ?>
+        </div>
         <!-- Clearfix -->
         <div class="clearfix"></div>
       </div>
