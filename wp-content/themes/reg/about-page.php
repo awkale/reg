@@ -12,7 +12,7 @@ Template Name: About Page
 
     <div class="page-heading-one">
       <h2><?php the_title(); ?></h2>
-      <p class="bg-color">Something About Us</p>
+      <p class="bg-color"><?php echo get_post_meta($post->ID, 'subtitle', true); ?></p>
     </div>
 
   <!-- Page heading one ends -->
