@@ -4,5 +4,7 @@ Description:
 Version: 1.0
 Author: Alex Kale
 Author URI: awkale.me
-Tags:
+Template: Avada
 */
+
+@import url(css/styles/style.css);
